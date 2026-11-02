@@ -43,6 +43,23 @@ const MENU = {
   ],
 };
 
+const menuPrice = new Map(
+  Object.values(MENU)
+    .flat()
+    .map((item) => [item.name.toLowerCase(), Math.round(Number(item.price.slice(1)) * 100)]),
+);
+
+// Prices from data/kettle-and-crumb.md: oat, almond and soy milk 60 cents; large 80 cents.
+function orderTotal(items) {
+  let cents = 0;
+  for (const it of items) {
+    cents += menuPrice.get(String(it.name).toLowerCase());
+    if (["oat", "almond", "soy"].includes(it.milk)) cents += 60;
+    if (it.size === "large") cents += 80;
+  }
+  return `$${(cents / 100).toFixed(2)}`;
+}
+
 const menuNames = new Set(
   Object.values(MENU)
     .flat()
@@ -249,8 +266,8 @@ function handlePost(pathname, body, req, res) {
       Order: id,
       Status: "Received",
       Items: formatOrderItems(items),
-      Total: "$0.00",
-      Placed: "now",
+      Total: orderTotal(items),
+      Placed: "just now",
     };
     db.orders[id] = order;
     return jsonResponse(res, 201, order);

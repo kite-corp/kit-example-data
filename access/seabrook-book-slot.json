@@ -3,7 +3,35 @@
   "interface": "bookings_api",
   "op": "book_slot",
   "call": "POST /v1/bookings",
-  "params": [],
+  "params": [
+    {
+      "name": "day",
+      "type": "enum",
+      "values": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday"
+      ]
+    },
+    {
+      "name": "time",
+      "type": "str",
+      "from": "input"
+    },
+    {
+      "name": "treatment",
+      "type": "str",
+      "from": "input"
+    },
+    {
+      "name": "patient_name",
+      "type": "str",
+      "from": "input"
+    }
+  ],
   "doc": "Book an appointment at the clinic. The app sends the time and treatment.",
   "examples": [
     "book a checkup on thursday morning",

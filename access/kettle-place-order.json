@@ -3,7 +3,17 @@
   "interface": "orders_api",
   "op": "place_order",
   "call": "POST /v1/orders",
-  "params": [],
+  "params": [
+    {
+      "name": "member_id",
+      "type": "id"
+    },
+    {
+      "name": "items",
+      "type": "str",
+      "from": "input"
+    }
+  ],
   "doc": "Place a new pick-up order in the app. The app sends the items and payment.",
   "examples": [
     "order a flat white and a croissant",

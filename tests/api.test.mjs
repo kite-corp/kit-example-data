@@ -108,6 +108,8 @@ test("POST order 201 then GET", async () => {
   });
   assert.equal(status, 201);
   assert.match(json.Order, /^K-2044$/);
+  // Flat white $4.20 + oat milk 60 cents (data/kettle-and-crumb.md)
+  assert.equal(json.Total, "$4.80");
   const got = await call("GET", `/v1/orders/${json.Order}`);
   assert.equal(got.status, 200);
   assert.equal(got.json.Order, json.Order);
@@ -160,4 +162,13 @@ test("body over 16 KB returns 413", async () => {
     body: big,
   });
   assert.equal(status, 413);
+});
+
+test("order total adds large and plant milk per item", async () => {
+  const { json } = await call("POST", "/v1/orders", {
+    headers: { "content-type": "application/json" },
+    body: { member_id: "M-1182", items: [{ name: "Latte", size: "large", milk: "soy" }, { name: "Banana bread" }] },
+  });
+  // Latte $4.50 + large 80c + soy 60c + banana bread $4.00
+  assert.equal(json.Total, "$9.90");
 });
