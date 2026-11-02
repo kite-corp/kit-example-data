@@ -2,26 +2,26 @@
 
 INSERT INTO cafe.menu_items (id, name, category, price_cents, vegan, gluten_free) VALUES
   ('mi_almond_croissant', 'Almond croissant', 'bakery', 460, false, false),
-  ('mi_americano', 'Americano', 'coffee', 350, true, true),
+  ('mi_americano', 'Americano', 'coffee', 350, false, false),
   ('mi_avocado_toast', 'Avocado toast', 'breakfast', 1100, true, false),
   ('mi_bacon_egg_roll', 'Bacon and egg roll', 'breakfast', 950, false, false),
   ('mi_banana_bread', 'Banana bread', 'bakery', 400, false, true),
   ('mi_butter_croissant', 'Butter croissant', 'bakery', 380, false, false),
-  ('mi_cappuccino', 'Cappuccino', 'coffee', 420, true, true),
-  ('mi_chai', 'Chai', 'tea', 440, true, true),
+  ('mi_cappuccino', 'Cappuccino', 'coffee', 420, false, false),
+  ('mi_chai', 'Chai', 'tea', 440, false, false),
   ('mi_chicken_pesto_toastie', 'Chicken and pesto toastie', 'lunch', 1250, false, false),
   ('mi_cinnamon_bun', 'Cinnamon bun', 'bakery', 420, false, false),
-  ('mi_earl_grey', 'Earl grey tea', 'tea', 320, true, true),
-  ('mi_english_breakfast', 'English breakfast tea', 'tea', 320, true, true),
-  ('mi_espresso', 'Espresso', 'coffee', 300, true, true),
-  ('mi_flat_white', 'Flat white', 'coffee', 420, true, true),
+  ('mi_earl_grey', 'Earl grey tea', 'tea', 320, true, false),
+  ('mi_english_breakfast', 'English breakfast tea', 'tea', 320, true, false),
+  ('mi_espresso', 'Espresso', 'coffee', 300, false, false),
+  ('mi_flat_white', 'Flat white', 'coffee', 420, false, false),
   ('mi_granola_bowl', 'Granola bowl', 'breakfast', 850, true, true),
-  ('mi_hot_chocolate', 'Hot chocolate', 'tea', 420, false, true),
-  ('mi_latte', 'Latte', 'coffee', 450, true, true),
-  ('mi_matcha', 'Matcha', 'tea', 480, true, true),
-  ('mi_mocha', 'Mocha', 'coffee', 490, true, true),
+  ('mi_hot_chocolate', 'Hot chocolate', 'tea', 420, false, false),
+  ('mi_latte', 'Latte', 'coffee', 450, false, false),
+  ('mi_matcha', 'Matcha', 'tea', 480, true, false),
+  ('mi_mocha', 'Mocha', 'coffee', 490, false, false),
   ('mi_orange_polenta_cake', 'Orange polenta cake', 'bakery', 520, false, true),
-  ('mi_roast_pumpkin_salad', 'Roast pumpkin salad', 'lunch', 1300, false, true),
+  ('mi_roast_pumpkin_salad', 'Roast pumpkin salad', 'lunch', 1300, false, false),
   ('mi_soup_of_day', 'Soup of the day with bread', 'lunch', 1050, false, false),
   ('mi_sourdough_toast', 'Sourdough toast with butter', 'breakfast', 550, false, false);
 
@@ -43,13 +43,13 @@ INSERT INTO cafe.loyalty_cards (member_id, stamps) VALUES
 
 INSERT INTO cafe.orders (id, member_id, status, placed_at, total_cents) VALUES
   ('K-2041', 'M-1182', 'ready', '2026-11-02 08:12:00+00', 940),
-  ('K-2042', 'M-1182', 'being_made', '2026-11-02 08:19:00+00', 1500),
+  ('K-2042', 'M-1182', 'being_made', '2026-11-02 08:19:00+00', 1480),
   ('K-2043', 'M-3301', 'received', '2026-11-02 08:21:00+00', 840);
 
 INSERT INTO cafe.order_items (order_id, line, item_id, milk, size, qty, price_cents) VALUES
   ('K-2041', 1, 'mi_flat_white', 'oat', 'regular', 1, 480),
   ('K-2041', 2, 'mi_almond_croissant', NULL, 'regular', 1, 460),
-  ('K-2042', 1, 'mi_latte', 'whole', 'large', 1, 550),
+  ('K-2042', 1, 'mi_latte', 'whole', 'large', 1, 530),
   ('K-2042', 2, 'mi_bacon_egg_roll', NULL, 'regular', 1, 950),
   ('K-2043', 1, 'mi_chai', NULL, 'regular', 1, 440),
   ('K-2043', 2, 'mi_banana_bread', NULL, 'regular', 1, 400);

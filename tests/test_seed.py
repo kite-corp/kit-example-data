@@ -49,3 +49,36 @@ class TestSeedSql(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _seed_data():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("seed_data", ROOT / "tools" / "seed_data.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+class SeedMatchesFiles(unittest.TestCase):
+    def test_the_menu_csv_matches_the_seed(self):
+        import csv
+
+        sd = _seed_data()
+        seed = {m["name"]: m for m in sd.MENU_ITEMS}
+        rows = list(csv.DictReader((ROOT / "csv/good/menu_items.csv").open(encoding="utf-8")))
+        self.assertEqual(sorted(r["name"] for r in rows), sorted(seed))
+        for r in rows:
+            m = seed[r["name"]]
+            self.assertEqual(round(float(r["price"]) * 100), m["price_cents"], r["name"])
+            self.assertEqual(r["vegan"] == "true", m["vegan"], r["name"])
+            self.assertEqual(r["gluten_free"] == "true", m["gluten_free"], r["name"])
+
+    def test_order_totals_are_the_sum_of_their_lines_and_match_the_showcase(self):
+        sd = _seed_data()
+        showcase = json.loads((ROOT / "data/showcase.json").read_text(encoding="utf-8"))
+        for o in sd.ORDERS:
+            lines = sum(i["price_cents"] * i.get("qty", 1) for i in sd.ORDER_ITEMS if i["order_id"] == o["id"])
+            self.assertEqual(lines, o["total_cents"], o["id"])
+            if o["id"] in showcase["orders"]:
+                self.assertEqual(showcase["orders"][o["id"]]["Total"], f"${o['total_cents'] / 100:.2f}")

@@ -47,3 +47,26 @@ class TestResetPostgres(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ResetRefuses(unittest.TestCase):
+    def _run(self, **env):
+        import subprocess
+        import sys
+
+        full = {k: v for k, v in os.environ.items() if not k.startswith("PG")}
+        full.update(env)
+        return subprocess.run(
+            [sys.executable, "-I", str(ROOT / "tools" / "reset.py")],
+            env=full, capture_output=True, text=True, timeout=30,
+        )
+
+    def test_a_remote_host_is_refused(self):
+        out = self._run(PGHOST="203.0.113.1", PGPORT="5432", PGUSER="x")
+        self.assertNotEqual(out.returncode, 0)
+        self.assertIn("not local", out.stdout + out.stderr)
+
+    def test_another_database_is_refused(self):
+        out = self._run(PGHOST="127.0.0.1", PGPORT="5432", PGUSER="x", PGDATABASE="postgres")
+        self.assertNotEqual(out.returncode, 0)
+        self.assertIn("refusing", out.stdout + out.stderr)

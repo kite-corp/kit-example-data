@@ -43,6 +43,18 @@ const MENU = {
   ],
 };
 
+// Treatment prices from data/seabrook-dental.md (same as csv/good/treatments.csv).
+const TREATMENTS = {
+  "Checkup and clean": "$145",
+  "New patient exam": "$220",
+  "Tooth coloured filling": "from $180",
+  "Root canal": "from $950",
+  Crown: "from $1,450",
+  "Teeth whitening": "$490",
+  "Child checkup under 12": "$75",
+  "Aligner consult": "free",
+};
+
 const menuPrice = new Map(
   Object.values(MENU)
     .flat()
@@ -278,6 +290,9 @@ function handlePost(pathname, body, req, res) {
     if (!day || !time || !treatment || !patientName) {
       return jsonResponse(res, 400, { error: "day, time, treatment, patient_name required" });
     }
+    if (!Object.hasOwn(TREATMENTS, treatment)) {
+      return jsonResponse(res, 400, { error: "unknown treatment" });
+    }
     if (!Object.hasOwn(DAY_PREFIX, day)) {
       return jsonResponse(res, 400, { error: "invalid day" });
     }
@@ -294,7 +309,7 @@ function handlePost(pathname, body, req, res) {
       Day: `${DAY_PREFIX[day]} (new)`,
       Time: time,
       Chair: slot?.Chair || "Chair 1",
-      Price: "$145",
+      Price: TREATMENTS[treatment],
     };
     db.bookings[id] = booking;
     return jsonResponse(res, 201, booking);

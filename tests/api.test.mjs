@@ -172,3 +172,22 @@ test("order total adds large and plant milk per item", async () => {
   // Latte $4.50 + large 80c + soy 60c + banana bread $4.00
   assert.equal(json.Total, "$9.90");
 });
+
+test("a booking takes its price from the treatment; an unknown treatment is 400", async () => {
+  const ok = await call("POST", "/v1/bookings", {
+    headers: { "content-type": "application/json" },
+    body: { day: "monday", time: "1:00 pm", treatment: "Teeth whitening", patient_name: "Test Patient" },
+  });
+  assert.equal(ok.status, 201);
+  assert.equal(ok.json.Price, "$490");
+  const bad = await call("POST", "/v1/bookings", {
+    headers: { "content-type": "application/json" },
+    body: { day: "monday", time: "4:30 pm", treatment: "toString", patient_name: "Test Patient" },
+  });
+  assert.equal(bad.status, 400);
+});
+
+test("a body that is not JSON is 400", async () => {
+  const { status } = await call("POST", "/v1/orders", { body: "{not json" });
+  assert.equal(status, 400);
+});
