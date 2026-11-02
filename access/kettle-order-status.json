@@ -1,0 +1,17 @@
+{
+  "name": "order_status",
+  "interface": "orders_api",
+  "op": "get_order",
+  "call": "GET /v1/orders/{order_id}",
+  "params": [{ "name": "order_id", "type": "id" }],
+  "doc": "The status of one app order, named by its order number. The app fetches the order.",
+  "examples": [
+    "is my order K-2041 ready",
+    "is order K-77 ready yet",
+    "status of order K-310",
+    "where is my order K-15",
+    "has order K-902 been made",
+    "check my order K-48",
+    "is K-1200 ready"
+  ]
+}

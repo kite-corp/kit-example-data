@@ -1,0 +1,24 @@
+{
+  "name": "free_slots",
+  "interface": "slots_api",
+  "op": "free_slots",
+  "call": "GET /v1/slots/{day}",
+  "params": [
+    {
+      "name": "day",
+      "type": "enum",
+      "values": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    }
+  ],
+  "doc": "Free appointment times on one day of the week. The app fetches them from the diary.",
+  "examples": [
+    "what times are free on monday",
+    "free appointments on tuesday",
+    "any free times wednesday",
+    "what times are free on thursday",
+    "free appointment times friday",
+    "any free appointments saturday",
+    "free times on sunday",
+    "free slots thursday"
+  ]
+}

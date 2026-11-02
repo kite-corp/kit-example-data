@@ -1,0 +1,636 @@
+{
+ "note": "Invented sample data for the showcase. No real people, orders, patients or sales.",
+ "orders": {
+  "K-2041": {
+   "Order": "K-2041",
+   "Status": "Ready on the shelf",
+   "Items": "Flat white with oat milk, almond croissant",
+   "Total": "$9.40",
+   "Placed": "8:12 am"
+  },
+  "K-2042": {
+   "Order": "K-2042",
+   "Status": "Being made",
+   "Items": "Large latte, bacon and egg roll",
+   "Total": "$15.00",
+   "Placed": "8:19 am"
+  },
+  "K-2043": {
+   "Order": "K-2043",
+   "Status": "Received",
+   "Items": "Chai, banana bread",
+   "Total": "$8.40",
+   "Placed": "8:21 am"
+  }
+ },
+ "stock": {
+  "bakery": [
+   {
+    "Item": "Butter croissant",
+    "Left": "6",
+    "Price": "$3.80"
+   },
+   {
+    "Item": "Almond croissant",
+    "Left": "2",
+    "Price": "$4.60"
+   },
+   {
+    "Item": "Cinnamon bun",
+    "Left": "0",
+    "Price": "$4.20"
+   },
+   {
+    "Item": "Banana bread",
+    "Left": "9",
+    "Price": "$4.00"
+   }
+  ],
+  "breakfast": [
+   {
+    "Item": "Sourdough toast with butter",
+    "Left": "14",
+    "Price": "$5.50"
+   },
+   {
+    "Item": "Avocado toast",
+    "Left": "5",
+    "Price": "$11.00"
+   },
+   {
+    "Item": "Bacon and egg roll",
+    "Left": "3",
+    "Price": "$9.50"
+   },
+   {
+    "Item": "Granola bowl",
+    "Left": "8",
+    "Price": "$8.50"
+   }
+  ],
+  "lunch": [
+   {
+    "Item": "Chicken and pesto toastie",
+    "Left": "7",
+    "Price": "$12.50"
+   },
+   {
+    "Item": "Roast pumpkin salad",
+    "Left": "4",
+    "Price": "$13.00"
+   },
+   {
+    "Item": "Soup of the day with bread",
+    "Left": "10",
+    "Price": "$10.50"
+   }
+  ]
+ },
+ "slots": {
+  "monday": [
+   {
+    "Time": "8:30 am",
+    "Length": "60 min",
+    "Chair": "Chair 2"
+   },
+   {
+    "Time": "1:00 pm",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   },
+   {
+    "Time": "4:30 pm",
+    "Length": "60 min",
+    "Chair": "Chair 3"
+   }
+  ],
+  "tuesday": [
+   {
+    "Time": "10:00 am",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   },
+   {
+    "Time": "3:15 pm",
+    "Length": "60 min",
+    "Chair": "Chair 2"
+   }
+  ],
+  "wednesday": [
+   {
+    "Time": "9:00 am",
+    "Length": "60 min",
+    "Chair": "Chair 3"
+   },
+   {
+    "Time": "11:30 am",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   },
+   {
+    "Time": "2:00 pm",
+    "Length": "30 min",
+    "Chair": "Chair 2"
+   },
+   {
+    "Time": "5:00 pm",
+    "Length": "60 min",
+    "Chair": "Chair 1"
+   }
+  ],
+  "thursday": [
+   {
+    "Time": "8:30 am",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   },
+   {
+    "Time": "11:00 am",
+    "Length": "60 min",
+    "Chair": "Chair 2"
+   },
+   {
+    "Time": "2:15 pm",
+    "Length": "30 min",
+    "Chair": "Chair 3"
+   },
+   {
+    "Time": "4:45 pm",
+    "Length": "60 min",
+    "Chair": "Chair 1"
+   }
+  ],
+  "friday": [
+   {
+    "Time": "9:30 am",
+    "Length": "60 min",
+    "Chair": "Chair 2"
+   },
+   {
+    "Time": "1:45 pm",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   }
+  ],
+  "saturday": [
+   {
+    "Time": "9:15 am",
+    "Length": "30 min",
+    "Chair": "Chair 1"
+   },
+   {
+    "Time": "11:00 am",
+    "Length": "60 min",
+    "Chair": "Chair 2"
+   }
+  ]
+ },
+ "bookings": {
+  "B-3107": {
+   "Booking": "B-3107",
+   "Treatment": "Checkup and clean",
+   "Day": "Thursday 5 November",
+   "Time": "11:00 am",
+   "Chair": "Chair 2",
+   "Price": "$145"
+  },
+  "B-3108": {
+   "Booking": "B-3108",
+   "Treatment": "Teeth whitening",
+   "Day": "Friday 6 November",
+   "Time": "9:30 am",
+   "Chair": "Chair 2",
+   "Price": "$490"
+  }
+ },
+ "loyalty": {
+  "M-1182": {
+   "value": 7,
+   "text": "2 more coffees for a free one. Stamps never expire."
+  }
+ },
+ "track": {
+  "K-2041": {
+   "eta": {
+    "value": 75,
+    "text": "Ready in about 3 minutes · usually 10 minutes at this time"
+   },
+   "track": {
+    "items": [
+     {
+      "label": "Order received",
+      "time": "8:12 am",
+      "state": "done",
+      "text": "Paid with Visa 4242"
+     },
+     {
+      "label": "Barista started",
+      "time": "8:15 am",
+      "state": "done"
+     },
+     {
+      "label": "Being made",
+      "time": "8:17 am",
+      "state": "now",
+      "text": "Large oat latte, almond croissant warming"
+     },
+     {
+      "label": "On the shelf",
+      "state": "todo",
+      "text": "Look for your name: Ana R."
+     }
+    ]
+   },
+   "pass": {
+    "value": "KETTLE:PICKUP:K-2041:ANA-R",
+    "code": "K-2041"
+   }
+  }
+ },
+ "notifications": {
+  "M-1182": {
+   "items": [
+    {
+     "label": "Your order is on the shelf",
+     "text": "K-2040 · Flat white · 8:31 am yesterday",
+     "icon": "circle-check",
+     "tone": "success",
+     "value": "1d"
+    },
+    {
+     "label": "2 stamps to a free coffee",
+     "text": "Your 9th coffee is on us",
+     "icon": "award",
+     "badge": "New",
+     "value": "2h"
+    },
+    {
+     "label": "Orange polenta cake is back",
+     "text": "Gluten free, Sundays from 8 am",
+     "icon": "cake-slice",
+     "value": "3h"
+    },
+    {
+     "label": "Closed on Tuesday 3 November",
+     "text": "Public holiday · open again Wednesday 7 am",
+     "icon": "calendar",
+     "tone": "warning",
+     "value": "1d"
+    }
+   ]
+  }
+ },
+ "sales": {
+  "2026-11-01": {
+   "revenue": {
+    "value": "$2,184",
+    "delta": "+12%",
+    "values": [
+     1640,
+     1720,
+     1810,
+     1590,
+     1930,
+     2050,
+     2184
+    ]
+   },
+   "orders": {
+    "value": "236",
+    "delta": "+8%"
+   },
+   "ticket": {
+    "value": "$9.25",
+    "delta": "+4%"
+   },
+   "by_hour": {
+    "labels": [
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "1"
+    ],
+    "values": [
+     412,
+     538,
+     366,
+     298,
+     344,
+     226
+    ]
+   },
+   "mix": {
+    "labels": [
+     "Coffee",
+     "Bakery",
+     "Breakfast",
+     "Lunch",
+     "Tea"
+    ],
+    "values": [
+     968,
+     412,
+     386,
+     294,
+     124
+    ],
+    "total": "$2,184"
+   },
+   "trend": {
+    "labels": [
+     "Mon",
+     "Tue",
+     "Wed",
+     "Thu",
+     "Fri",
+     "Sat",
+     "Sun"
+    ],
+    "values": [
+     1640,
+     1720,
+     1810,
+     1590,
+     1930,
+     2050,
+     2184
+    ]
+   },
+   "target": {
+    "value": 2184,
+    "max": 2500,
+    "text": "$316 to go · closes at 2 pm"
+   },
+   "top": {
+    "columns": [
+     "Item",
+     "Sold",
+     "Revenue"
+    ],
+    "rows": [
+     [
+      "Flat white",
+      "64",
+      "$268.80"
+     ],
+     [
+      "Latte",
+      "51",
+      "$229.50"
+     ],
+     [
+      "Almond croissant",
+      "38",
+      "$174.80"
+     ],
+     [
+      "Avocado toast",
+      "22",
+      "$242.00"
+     ],
+     [
+      "Banana bread",
+      "19",
+      "$76.00"
+     ]
+    ]
+   }
+  }
+ },
+ "calendar": {
+  "2026-11": {
+   "marks": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "disabled": [
+    1,
+    8,
+    15,
+    22,
+    29
+   ],
+   "selected": 5
+  }
+ },
+ "times": {
+  "2026-11-05": {
+   "label": "Free times on Thursday 5 November",
+   "items": [
+    {
+     "label": "8:30"
+    },
+    {
+     "label": "9:15",
+     "disabled": true
+    },
+    {
+     "label": "10:00",
+     "disabled": true
+    },
+    {
+     "label": "11:00",
+     "selected": true
+    },
+    {
+     "label": "11:45",
+     "disabled": true
+    },
+    {
+     "label": "2:15"
+    },
+    {
+     "label": "3:30",
+     "disabled": true
+    },
+    {
+     "label": "4:45"
+    }
+   ]
+  }
+ },
+ "visits": {
+  "B-3107": {
+   "status": {
+    "items": [
+     {
+      "label": "Booked online",
+      "time": "Mon 26 Oct",
+      "state": "done"
+     },
+     {
+      "label": "Reminder sent",
+      "time": "Wed 4 Nov, 9 am",
+      "state": "done",
+      "text": "Text and email"
+     },
+     {
+      "label": "Check in at the kiosk",
+      "time": "Thu 5 Nov",
+      "state": "now",
+      "text": "Opens 30 minutes before your visit"
+     },
+     {
+      "label": "Checkup and clean",
+      "time": "11:00, 45 min",
+      "state": "todo"
+     },
+     {
+      "label": "Pay the gap",
+      "state": "todo",
+      "text": "We claim from Harbour Health on the spot"
+     }
+    ]
+   },
+   "pass": {
+    "value": "SEABROOK:CHECKIN:B-3107:2026-11-05T11:00",
+    "code": "B-3107"
+   }
+  }
+ },
+ "clinic": {
+  "2026-W45": {
+   "bookings": {
+    "value": "142",
+    "delta": "+9%",
+    "values": [
+     118,
+     124,
+     131,
+     120,
+     130,
+     142
+    ]
+   },
+   "no_shows": {
+    "value": "3",
+    "delta": "-2"
+   },
+   "chairs": {
+    "value": 86,
+    "text": "4 chairs · 128 of 149 hours booked"
+   },
+   "by_day": {
+    "labels": [
+     "Mon",
+     "Tue",
+     "Wed",
+     "Thu",
+     "Fri",
+     "Sat"
+    ],
+    "values": [
+     31,
+     28,
+     30,
+     27,
+     18,
+     8
+    ]
+   },
+   "mix": {
+    "labels": [
+     "Checkup and clean",
+     "Fillings",
+     "Children",
+     "Whitening",
+     "Emergency"
+    ],
+    "values": [
+     64,
+     31,
+     22,
+     9,
+     16
+    ]
+   },
+   "today": {
+    "columns": [
+     "Time",
+     "Patient",
+     "Treatment",
+     "Chair"
+    ],
+    "rows": [
+     [
+      "8:30",
+      "J. Park",
+      "Checkup and clean",
+      "1"
+     ],
+     [
+      "9:15",
+      "L. Ruiz (7)",
+      "Child checkup",
+      "2"
+     ],
+     [
+      "10:00",
+      "S. Ahmed",
+      "Filling",
+      "3"
+     ],
+     [
+      "11:00",
+      "A. Ruiz",
+      "Checkup and clean",
+      "2"
+     ],
+     [
+      "11:45",
+      "T. Nguyen",
+      "Root canal, visit 2",
+      "4"
+     ]
+    ]
+   }
+  }
+ },
+ "invoices": {
+  "INV-5521": {
+   "invoice": {
+    "columns": [
+     "Item",
+     "Fee"
+    ],
+    "rows": [
+     [
+      "New patient exam (011)",
+      "$220.00"
+     ],
+     [
+      "Scale and clean (114)",
+      "$145.00"
+     ],
+     [
+      "Fluoride (121)",
+      "$40.00"
+     ],
+     [
+      "Tooth coloured filling (531)",
+      "$207.00"
+     ]
+    ],
+    "totals": [
+     "Total",
+     "$612.00"
+    ]
+   },
+   "claim": {
+    "value": 200,
+    "max": 612,
+    "text": "Harbour Health paid $200.00 · your gap is $412.00"
+   }
+  }
+ }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "left_today",
+  "interface": "stock_api",
+  "op": "left_today",
+  "call": "GET /v1/stock/{category}",
+  "params": [{ "name": "category", "type": "enum", "values": ["bakery", "breakfast", "lunch"] }],
+  "doc": "What is still left today in one part of the menu. The app fetches the counts.",
+  "examples": [
+    "what is left in the bakery today",
+    "what bakery items are left",
+    "is there anything left in the bakery",
+    "what breakfast is left today",
+    "anything left for breakfast",
+    "what lunch is left today",
+    "is there any lunch left",
+    "sold out in the bakery today"
+  ]
+}

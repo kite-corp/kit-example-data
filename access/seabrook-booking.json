@@ -1,0 +1,16 @@
+{
+  "name": "booking_details",
+  "interface": "bookings_api",
+  "op": "get_booking",
+  "call": "GET /v1/bookings/{booking_id}",
+  "params": [{ "name": "booking_id", "type": "id" }],
+  "doc": "The details of one booking, named by its booking number. The app fetches the booking.",
+  "examples": [
+    "show my booking B-3107",
+    "show booking B-12",
+    "details of booking B-480",
+    "what time is booking B-77",
+    "check my booking B-2051",
+    "my booking B-9"
+  ]
+}
