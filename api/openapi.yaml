@@ -1,0 +1,381 @@
+openapi: 3.1.0
+info:
+  title: kit-example-data API
+  version: 1.0.0
+  description: Invented sample REST API for Kettle & Crumb and Seabrook Family Dental showcase data.
+servers:
+  - url: http://127.0.0.1:18704
+paths:
+  /v1/orders/{order_id}:
+    get:
+      operationId: get_order
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Order row
+        "404":
+          description: Not found
+  /v1/stock/{category}:
+    get:
+      operationId: left_today
+      parameters:
+        - name: category
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [bakery, breakfast, lunch]
+      responses:
+        "200":
+          description: Stock rows for category
+        "404":
+          description: Not found
+  /v1/slots/{day}:
+    get:
+      operationId: free_slots
+      parameters:
+        - name: day
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+      responses:
+        "200":
+          description: Free appointment slots (empty on sunday)
+  /v1/bookings/{booking_id}:
+    get:
+      operationId: get_booking
+      parameters:
+        - name: booking_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Booking row
+        "404":
+          description: Not found
+    delete:
+      operationId: cancel_booking
+      parameters:
+        - name: booking_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Cancelled
+        "404":
+          description: Not found
+  /v1/loyalty/{member_id}:
+    get:
+      operationId: get_loyalty
+      parameters:
+        - name: member_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^M-\d{1,6}$'
+      responses:
+        "200":
+          description: Loyalty status
+        "404":
+          description: Not found
+  /v1/orders/{order_id}/eta:
+    get:
+      operationId: get_order_eta
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: ETA widget
+        "404":
+          description: Not found
+  /v1/orders/{order_id}/track:
+    get:
+      operationId: get_order_track
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Order tracking timeline
+        "404":
+          description: Not found
+  /v1/orders/{order_id}/pass:
+    get:
+      operationId: get_order_pass
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Pickup pass payload
+        "404":
+          description: Not found
+  /v1/members/{member_id}/notifications:
+    get:
+      operationId: get_member_notifications
+      parameters:
+        - name: member_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^M-\d{1,6}$'
+      responses:
+        "200":
+          description: Notification list
+        "404":
+          description: Not found
+  /v1/sales/{date}/{part}:
+    get:
+      operationId: get_sales_part
+      parameters:
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: part
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Sales dashboard part
+        "404":
+          description: Not found
+  /v1/calendar/{month}:
+    get:
+      operationId: get_calendar_month
+      parameters:
+        - name: month
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{4}-\d{2}$'
+      responses:
+        "200":
+          description: Calendar marks for month
+        "404":
+          description: Not found
+  /v1/times/{date}:
+    get:
+      operationId: get_times_for_date
+      parameters:
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        "200":
+          description: Free times on a date
+        "404":
+          description: Not found
+  /v1/bookings/{booking_id}/status:
+    get:
+      operationId: get_booking_status
+      parameters:
+        - name: booking_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Visit status timeline
+        "404":
+          description: Not found
+  /v1/bookings/{booking_id}/pass:
+    get:
+      operationId: get_booking_pass
+      parameters:
+        - name: booking_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Z]{1,3}-\d{1,6}$'
+      responses:
+        "200":
+          description: Check-in pass
+        "404":
+          description: Not found
+  /v1/clinic/{week}/{part}:
+    get:
+      operationId: get_clinic_part
+      parameters:
+        - name: week
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^\d{4}-W\d{2}$'
+        - name: part
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Clinic dashboard part
+        "404":
+          description: Not found
+  /v1/invoices/{invoice_id}:
+    get:
+      operationId: get_invoice
+      parameters:
+        - name: invoice_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^INV-\d{1,6}$'
+      responses:
+        "200":
+          description: Invoice line items
+        "404":
+          description: Not found
+  /v1/invoices/{invoice_id}/claim:
+    get:
+      operationId: get_invoice_claim
+      parameters:
+        - name: invoice_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^INV-\d{1,6}$'
+      responses:
+        "200":
+          description: Health fund claim summary
+        "404":
+          description: Not found
+  /v1/menu:
+    get:
+      operationId: get_menu
+      responses:
+        "200":
+          description: Full cafe menu by category
+  /v1/menu/{category}:
+    get:
+      operationId: get_menu_category
+      parameters:
+        - name: category
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [coffee, tea, breakfast, lunch, bakery]
+      responses:
+        "200":
+          description: Menu items in one category
+        "404":
+          description: Not found
+  /v1/orders:
+    post:
+      operationId: create_order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [member_id, items]
+              properties:
+                member_id:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required: [name]
+                    properties:
+                      name:
+                        type: string
+                      milk:
+                        type: string
+                      size:
+                        type: string
+      responses:
+        "201":
+          description: Created order
+        "400":
+          description: Validation error
+        "413":
+          description: Payload too large
+  /v1/bookings:
+    post:
+      operationId: create_booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [day, time, treatment, patient_name]
+              properties:
+                day:
+                  type: string
+                  enum: [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+                time:
+                  type: string
+                treatment:
+                  type: string
+                patient_name:
+                  type: string
+      responses:
+        "201":
+          description: Created booking
+        "409":
+          description: Slot not available
+        "413":
+          description: Payload too large
+  /reset:
+    post:
+      operationId: reset_data
+      parameters:
+        - name: x-reset-token
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Data reloaded from disk
+        "403":
+          description: Wrong token
+        "404":
+          description: Reset disabled

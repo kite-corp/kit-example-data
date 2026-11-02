@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info:
+  title: anchor bomb
+  version: 1.0.0
+paths:
+  /x:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                example: &lol
+                  - ha
+                  - *lol

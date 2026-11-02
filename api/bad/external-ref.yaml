@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: external ref
+  version: 1.0.0
+paths:
+  /x:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: https://example.invalid/x.yaml
