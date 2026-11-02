@@ -50,3 +50,25 @@ class TestOpenApi(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AccessMatchesSpec(unittest.TestCase):
+    def test_every_access_entry_names_a_spec_operation_with_its_path(self):
+        import json
+        import re
+
+        spec = (ROOT / "api" / "openapi.yaml").read_text(encoding="utf-8")
+        ops = {}
+        path = None
+        verb = None
+        for line in spec.splitlines():
+            if m := re.match(r"^  (/[^:]+):$", line):
+                path = m.group(1)
+            elif m := re.match(r"^    (get|post|put|patch|delete):$", line):
+                verb = m.group(1).upper()
+            elif m := re.match(r"^      operationId: (\w+)$", line):
+                ops[m.group(1)] = f"{verb} {path}"
+        for f in sorted((ROOT / "access").glob("*.json")):
+            entry = json.loads(f.read_text(encoding="utf-8"))
+            with self.subTest(f.name):
+                self.assertEqual(ops.get(entry["op"]), entry["call"])

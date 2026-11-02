@@ -28,6 +28,7 @@ Loopback only, ports 18700-18709. The API listens on 18704 by default (`PORT`).
 ## Commands
 
 - `make check`: all tests (`python3 -m unittest` and `node --test`).
+- `npx @redocly/cli@1.34.0 lint api/openapi.yaml`: OpenAPI lint (recommended rules), clean.
 - `make reset`: drop and reseed the `kitexample` database (`PGHOST`, `PGPORT`, `PGUSER` from the env).
 
 Used by: the Kit data gateway tests, the shell data modules, `kit-example-web/-ios/-android`, the try-it showcase.

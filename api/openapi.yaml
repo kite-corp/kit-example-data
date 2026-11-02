@@ -2,13 +2,19 @@ openapi: 3.1.0
 info:
   title: kit-example-data API
   version: 1.0.0
+  license:
+    name: Apache-2.0
+    identifier: Apache-2.0
   description: Invented sample REST API for Kettle & Crumb and Seabrook Family Dental showcase data.
+# Test API on loopback: no auth (only /reset needs the x-reset-token header).
+security: []
 servers:
   - url: http://127.0.0.1:18704
 paths:
   /v1/orders/{order_id}:
     get:
       operationId: get_order
+      summary: Get order
       parameters:
         - name: order_id
           in: path
@@ -24,6 +30,7 @@ paths:
   /v1/stock/{category}:
     get:
       operationId: left_today
+      summary: Left today
       parameters:
         - name: category
           in: path
@@ -39,6 +46,7 @@ paths:
   /v1/slots/{day}:
     get:
       operationId: free_slots
+      summary: Free slots
       parameters:
         - name: day
           in: path
@@ -49,9 +57,12 @@ paths:
       responses:
         "200":
           description: Free appointment slots (empty on sunday)
+        "404":
+          description: Not found
   /v1/bookings/{booking_id}:
     get:
       operationId: get_booking
+      summary: Get booking
       parameters:
         - name: booking_id
           in: path
@@ -66,6 +77,7 @@ paths:
           description: Not found
     delete:
       operationId: cancel_booking
+      summary: Cancel booking
       parameters:
         - name: booking_id
           in: path
@@ -81,6 +93,7 @@ paths:
   /v1/loyalty/{member_id}:
     get:
       operationId: get_loyalty
+      summary: Get loyalty
       parameters:
         - name: member_id
           in: path
@@ -96,6 +109,7 @@ paths:
   /v1/orders/{order_id}/eta:
     get:
       operationId: get_order_eta
+      summary: Get order eta
       parameters:
         - name: order_id
           in: path
@@ -111,6 +125,7 @@ paths:
   /v1/orders/{order_id}/track:
     get:
       operationId: get_order_track
+      summary: Get order track
       parameters:
         - name: order_id
           in: path
@@ -126,6 +141,7 @@ paths:
   /v1/orders/{order_id}/pass:
     get:
       operationId: get_order_pass
+      summary: Get order pass
       parameters:
         - name: order_id
           in: path
@@ -141,6 +157,7 @@ paths:
   /v1/members/{member_id}/notifications:
     get:
       operationId: get_member_notifications
+      summary: Get member notifications
       parameters:
         - name: member_id
           in: path
@@ -156,6 +173,7 @@ paths:
   /v1/sales/{date}/{part}:
     get:
       operationId: get_sales_part
+      summary: Get sales part
       parameters:
         - name: date
           in: path
@@ -176,6 +194,7 @@ paths:
   /v1/calendar/{month}:
     get:
       operationId: get_calendar_month
+      summary: Get calendar month
       parameters:
         - name: month
           in: path
@@ -191,6 +210,7 @@ paths:
   /v1/times/{date}:
     get:
       operationId: get_times_for_date
+      summary: Get times for date
       parameters:
         - name: date
           in: path
@@ -206,6 +226,7 @@ paths:
   /v1/bookings/{booking_id}/status:
     get:
       operationId: get_booking_status
+      summary: Get booking status
       parameters:
         - name: booking_id
           in: path
@@ -221,6 +242,7 @@ paths:
   /v1/bookings/{booking_id}/pass:
     get:
       operationId: get_booking_pass
+      summary: Get booking pass
       parameters:
         - name: booking_id
           in: path
@@ -236,6 +258,7 @@ paths:
   /v1/clinic/{week}/{part}:
     get:
       operationId: get_clinic_part
+      summary: Get clinic part
       parameters:
         - name: week
           in: path
@@ -256,6 +279,7 @@ paths:
   /v1/invoices/{invoice_id}:
     get:
       operationId: get_invoice
+      summary: Get invoice
       parameters:
         - name: invoice_id
           in: path
@@ -271,6 +295,7 @@ paths:
   /v1/invoices/{invoice_id}/claim:
     get:
       operationId: get_invoice_claim
+      summary: Get invoice claim
       parameters:
         - name: invoice_id
           in: path
@@ -285,13 +310,17 @@ paths:
           description: Not found
   /v1/menu:
     get:
-      operationId: get_menu
+      operationId: list_menu
+      summary: List menu
       responses:
         "200":
           description: Full cafe menu by category
+        "404":
+          description: Not found
   /v1/menu/{category}:
     get:
-      operationId: get_menu_category
+      operationId: get_menu
+      summary: Get menu
       parameters:
         - name: category
           in: path
@@ -306,7 +335,8 @@ paths:
           description: Not found
   /v1/orders:
     post:
-      operationId: create_order
+      operationId: place_order
+      summary: Place order
       requestBody:
         required: true
         content:
@@ -338,7 +368,8 @@ paths:
           description: Payload too large
   /v1/bookings:
     post:
-      operationId: create_booking
+      operationId: book_slot
+      summary: Book slot
       requestBody:
         required: true
         content:
@@ -366,6 +397,7 @@ paths:
   /reset:
     post:
       operationId: reset_data
+      summary: Reset data
       parameters:
         - name: x-reset-token
           in: header
