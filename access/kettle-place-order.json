@@ -1,0 +1,16 @@
+{
+  "name": "place_order",
+  "interface": "orders_api",
+  "op": "place_order",
+  "call": "POST /v1/orders",
+  "params": [],
+  "doc": "Place a new pick-up order in the app. The app sends the items and payment.",
+  "examples": [
+    "order a flat white and a croissant",
+    "place an order for a large latte",
+    "I want to order avocado toast for pick up",
+    "can I order a chai and banana bread",
+    "put in an order for two flat whites",
+    "order lunch a chicken pesto toastie"
+  ]
+}

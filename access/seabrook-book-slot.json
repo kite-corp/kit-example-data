@@ -1,0 +1,16 @@
+{
+  "name": "book_slot",
+  "interface": "bookings_api",
+  "op": "book_slot",
+  "call": "POST /v1/bookings",
+  "params": [],
+  "doc": "Book an appointment at the clinic. The app sends the time and treatment.",
+  "examples": [
+    "book a checkup on thursday morning",
+    "I need an appointment next wednesday",
+    "book a cleaning for friday at 9 30",
+    "can I book a new patient exam",
+    "schedule a teeth whitening visit",
+    "book a child checkup on saturday"
+  ]
+}

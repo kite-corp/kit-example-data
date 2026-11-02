@@ -1,0 +1,6 @@
+name,note
+safe,hello
+evil,=HYPERLINK("http://example.invalid","x")
+plus,+2+3
+minus,-2+3
+at,@SUM(A1:A2)

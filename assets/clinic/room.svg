@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+<title>Treatment room</title>
+<rect width="96" height="96" fill="#e4eaee"/>
+<rect x="14" y="20" width="68" height="60" fill="#c5d2da"/>
+<rect x="22" y="28" width="20" height="44" fill="#93a8b3"/>
+<circle cx="68" cy="40" r="10" fill="#f0f4f6"/>
+<rect x="58" y="56" width="24" height="16" rx="2" fill="#7d939e"/>
+</svg>

@@ -1,0 +1,18 @@
+day,time,minutes,chair
+monday,8:30 am,60,Chair 2
+monday,1:00 pm,30,Chair 1
+monday,4:30 pm,60,Chair 3
+tuesday,10:00 am,30,Chair 1
+tuesday,3:15 pm,60,Chair 2
+wednesday,9:00 am,60,Chair 3
+wednesday,11:30 am,30,Chair 1
+wednesday,2:00 pm,30,Chair 2
+wednesday,5:00 pm,60,Chair 1
+thursday,8:30 am,30,Chair 1
+thursday,11:00 am,60,Chair 2
+thursday,2:15 pm,30,Chair 3
+thursday,4:45 pm,60,Chair 1
+friday,9:30 am,60,Chair 2
+friday,1:45 pm,30,Chair 1
+saturday,9:15 am,30,Chair 1
+saturday,11:00 am,60,Chair 2

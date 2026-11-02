@@ -1,0 +1,9 @@
+name,price,from_price,minutes
+Checkup and clean,145,false,45
+New patient exam,220,false,60
+Tooth coloured filling,180,true,60
+Root canal,950,true,90
+Crown,1450,true,60
+Teeth whitening,490,false,90
+Child checkup under 12,75,false,30
+Aligner consult,0,false,30

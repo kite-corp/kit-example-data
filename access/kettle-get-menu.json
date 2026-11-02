@@ -1,0 +1,22 @@
+{
+  "name": "get_menu",
+  "interface": "menu_api",
+  "op": "get_menu",
+  "call": "GET /v1/menu/{category}",
+  "params": [
+    {
+      "name": "category",
+      "type": "enum",
+      "values": ["coffee", "tea", "breakfast", "lunch", "bakery"]
+    }
+  ],
+  "doc": "The menu for one part of the cafe. The app fetches prices and options.",
+  "examples": [
+    "show me the coffee menu",
+    "what is on the breakfast menu",
+    "list the bakery items",
+    "what teas do you have",
+    "show the lunch menu",
+    "what is in the coffee section"
+  ]
+}

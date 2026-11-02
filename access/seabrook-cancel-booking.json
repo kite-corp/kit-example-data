@@ -1,0 +1,16 @@
+{
+  "name": "cancel_booking",
+  "interface": "bookings_api",
+  "op": "cancel_booking",
+  "call": "DELETE /v1/bookings/{booking_id}",
+  "params": [{ "name": "booking_id", "type": "id" }],
+  "doc": "Cancel one booking by its booking number. The app sends the cancel request.",
+  "examples": [
+    "cancel my booking B-3107",
+    "cancel booking B-12",
+    "I need to cancel B-480",
+    "please cancel appointment B-77",
+    "cancel my visit B-2051",
+    "drop booking B-9"
+  ]
+}

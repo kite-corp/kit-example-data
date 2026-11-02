@@ -1,0 +1,23 @@
+name,category,price,vegan,gluten_free
+Espresso,coffee,3.00,false,false
+Americano,coffee,3.50,false,false
+Flat white,coffee,4.20,false,false
+Cappuccino,coffee,4.20,false,false
+Latte,coffee,4.50,false,false
+Mocha,coffee,4.90,false,false
+English breakfast tea,tea,3.20,true,false
+Earl grey tea,tea,3.20,true,false
+Chai,tea,4.40,false,false
+Matcha,tea,4.80,true,false
+Hot chocolate,tea,4.20,false,false
+Sourdough toast with butter,breakfast,5.50,false,false
+Avocado toast,breakfast,11.00,true,false
+Bacon and egg roll,breakfast,9.50,false,false
+Granola bowl,breakfast,8.50,true,true
+Chicken and pesto toastie,lunch,12.50,false,false
+Roast pumpkin salad,lunch,13.00,false,false
+Soup of the day with bread,lunch,10.50,false,false
+Butter croissant,bakery,3.80,false,false
+Almond croissant,bakery,4.60,false,false
+Cinnamon bun,bakery,4.20,false,false
+Banana bread,bakery,4.00,false,true
